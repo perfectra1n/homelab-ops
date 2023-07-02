@@ -1,5 +1,6 @@
 ## Kubernetes quick notes
 
+[What actually worked w/ ArgoCD](https://trilium.perfectra1n.com/share/m990xINlhaIc)
 
 
 

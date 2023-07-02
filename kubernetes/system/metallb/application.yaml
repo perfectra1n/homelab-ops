@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: sealed-secrets
+  namespace: metallb-system
+spec:
+  project: default
+  source:
+    chart: metallb
+    repoURL: https://metallb.github.io/metallb
+    helm:
+      releaseName: metallb-release
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: metallb-system
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
