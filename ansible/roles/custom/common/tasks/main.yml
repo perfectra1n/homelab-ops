@@ -1,0 +1,14 @@
+---
+#
+# Tasks to be applied to all servers
+#
+
+- name: Populate service facts
+  service_facts:
+- debug:
+    msg: Docker installed!
+  when: "'docker' in services"
+
+# Add further tasks for the common role (applied to all servers) to this playbook...
+
+...

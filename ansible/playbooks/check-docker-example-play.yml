@@ -1,0 +1,10 @@
+---
+- name: "Install Telegraf"
+  hosts: all
+  become: true
+
+
+  roles:
+    - role: custom/check-docker
+
+    

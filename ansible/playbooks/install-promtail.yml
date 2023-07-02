@@ -1,0 +1,17 @@
+---
+- name: "Install Promtail"
+  hosts: all
+  become: true
+
+  roles:
+    - role: galaxy/patrickjahns/ansible-role-promtail
+      vars:
+        promtail_loki_server_url: "http://logmon.fuller.network:3100"
+        promtail_config_scrape_configs:
+          - job_name: system
+            static_configs:
+            - targets:
+                - localhost
+              labels:
+                job: varlogs
+                __path__: /var/log/*log

@@ -1,0 +1,12 @@
+---
+- name: "Install Docker"
+  hosts: all
+  become: true
+
+  roles:
+    - role: galaxy/geerlingguy.docker
+      tags:
+        - setup-docker
+        - setup-all
+        - install-docker
+        - install-all

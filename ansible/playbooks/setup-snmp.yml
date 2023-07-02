@@ -1,0 +1,16 @@
+---
+- name: "Setup SNMP"
+  hosts: all
+  become: true
+  vars_prompt:
+  - name: snmp_username
+    prompt: Enter the SNMP username you want to use
+  - name: snmp_password
+    prompt: Enter the SNMP password you want to use
+
+  roles:
+  - role: galaxy/sbaerlocher.snmp
+    become: true
+    vars:
+      snmp_user: '{{ snmp_username }}'
+      snmp_password: '{{ snmp_password }}'

@@ -1,0 +1,64 @@
+---
+- name: "Setup Monitoring"
+  hosts: all
+  become: true
+  vars_prompt:
+  - name: telegraf_api_key
+    prompt: Enter the InfluxDB Token / API key
+
+  roles:
+    - role: galaxy/prometheus-community/ansible/prometheus-community/ansible/roles/node_exporter
+    - role: galaxy/patrickjahns/ansible-role-promtail
+      vars:
+        promtail_loki_server_url: "http://logmon.fuller.network:3100"
+        promtail_config_scrape_configs:
+          - job_name: system
+            static_configs:
+            - targets:
+                - localhost
+              labels:
+                job: varlogs
+                __path__: /var/log/*log
+    - role: galaxy/robertdebock/ansible-role-rsyslog
+      vars:
+        rsyslog_receiver: yes
+        rsyslog_remote: logmon.fuller.network
+        rsyslog_remote_port: 5140
+        rsyslog_package_state: latest
+        rsyslog_preservefqdn: yes
+    - role: galaxy/patrickjahns/ansible-role-promtail
+      vars:
+        promtail_loki_server_url: "http://logmon.fuller.network:3100"
+        promtail_config_scrape_configs:
+          - job_name: system
+            static_configs:
+            - targets:
+                - localhost
+              labels:
+                job: varlogs
+                __path__: /var/log/*log
+    #- role: galaxy/hifis.unattended_upgrades
+    #  when: ansible_facts['os_family'] == 'Debian'
+    - role: galaxy/djwasabi.telegraf
+      vars:
+        telegraf_agent_interval: 60
+        telegraf_agent_hostname: "{{ inventory_hostname }}"
+        telegraf_agent_package: telegraf
+        telegraf_agent_package_method: online
+        telegraf_agent_output:
+          - type: influxdb_v2
+            config:
+              - 'urls = ["http://logmon.fuller.network:8086"]'
+              - 'token = "{{ telegraf_api_key }}"'
+              - 'bucket = "telegraf-data"'
+              - 'organization = "myorg"'
+          - type: influxdb
+            config:
+              - 'urls = ["http://logmon.fuller.network:8428"]'
+
+        telegraf_plugins_extra:
+          docker:
+            config:
+              - endpoint = "unix:///var/run/docker.sock"
+              - perdevice = false
+              - total = true

@@ -1,0 +1,21 @@
+---
+#
+# Tasks to be applied to all servers
+#
+
+- name: Check connectivity
+  ping:
+    data: alive
+  tags: check
+
+- name: "Install Docker"
+  become: true
+
+  roles:
+    - role: galaxy/geerlingguy.docker
+      tags:
+        - setup-docker
+        - setup-all
+        - install-docker
+        - install-all
+# Add further tasks for the common role (applied to all servers) to this playbook...

@@ -1,0 +1,13 @@
+---
+#
+# Tasks to be applied to all servers
+#
+
+- name: "Install node_exporter"
+  become: true
+
+  roles:
+    - role: galaxy/prometheus-community/ansible/prometheus-community/ansible/roles/node_exporter
+
+    
+# Add further tasks for the common role (applied to all servers) to this playbook...

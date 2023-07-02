@@ -1,0 +1,12 @@
+---
+#
+# Tasks to be applied to all servers
+#
+
+- name: Stop service snmp, if started
+  ansible.builtin.service:
+    name: snmp
+    state: stopped
+
+
+# Add further tasks for the common role (applied to all servers) to this playbook...

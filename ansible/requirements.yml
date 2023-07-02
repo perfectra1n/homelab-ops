@@ -1,0 +1,22 @@
+---
+- src: git+https://github.com/geerlingguy/ansible-role-docker
+  version: 6.1.0
+  name: geerlingguy.docker
+- src: git+https://github.com/dj-wasabi/ansible-telegraf.git
+  version: 0.14.0
+  name: djwasabi.telegraf
+- src: git+https://github.com/sbaerlocher/ansible.snmp.git
+  version: 1.9.0
+  name: sbaerlocher.snmp
+- src: git+https://github.com/robertdebock/ansible-role-rsyslog.git
+  version: 4.6.2
+  name: robertdebock/ansible-role-rsyslog
+- src: git+https://github.com/prometheus-community/ansible.git
+  version: 0.5.0
+  name: prometheus-community/ansible
+- src: git+https://github.com/patrickjahns/ansible-role-promtail.git
+  version: 1.24.0
+  name: patrickjahns/ansible-role-promtail
+- src: git+https://github.com/hifis-net/ansible-role-unattended-upgrades.git
+  version: v3.0.0
+  name: hifis.unattended_upgrades

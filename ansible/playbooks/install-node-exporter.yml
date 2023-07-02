@@ -1,0 +1,23 @@
+---
+- name: "Setup Monitoring"
+  hosts: all
+  become: true
+
+  roles:
+    - role: galaxy/prometheus-community/ansible/prometheus-community/ansible/roles/node_exporter
+      vars:
+        node_exporter_system_group: "perf3ct"
+        node_exporter_system_user: "perf3ct"
+    - role: galaxy/patrickjahns/ansible-role-promtail
+      vars:
+        promtail_loki_server_url: "http://logmon.fuller.network:3100"
+        promtail_config_scrape_configs:
+          - job_name: system
+            static_configs:
+            - targets:
+                - localhost
+              labels:
+                job: varlogs
+                __path__: /var/log/*log
+        promtail_system_user: "perf3ct"
+        promtail_system_group: "perf3ct"

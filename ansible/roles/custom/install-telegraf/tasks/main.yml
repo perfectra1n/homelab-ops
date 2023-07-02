@@ -1,0 +1,32 @@
+---
+- name: "Install Telegraf"
+  become: true
+  vars_prompt:
+    - name: telegraf_api_key
+      prompt: Enter the InfluxDB Token / API key
+
+  roles:
+    - role: galaxy/djwasabi.telegraf
+      vars:
+        telegraf_agent_hostname: "{{ inventory_hostname }}"
+        telegraf_agent_package: telegraf
+        telegraf_agent_package_method: online
+        telegraf_agent_output:
+          - type: influxdb_v2
+            config:
+              - 'urls = ["http://logmon.fuller.network:8086"]'
+              - 'token = "{{ telegraf_api_key }}"'
+              - 'bucket = "telegraf-data"'
+              - 'organization = "myorg"'
+          - type: influxdb
+            config:
+              - 'urls = ["http://logmon.fuller.network:8428"]'
+
+        telegraf_plugins_extra:
+          docker:
+            config:
+              - endpoint = "unix:///var/run/docker.sock"
+              - perdevice = false
+              - total = true
+    
+# Add further tasks for the common role (applied to all servers) to this playbook...
