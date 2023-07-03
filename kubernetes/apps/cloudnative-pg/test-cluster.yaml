@@ -2,6 +2,8 @@ apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
   name: test-cluster
+  labels:
+    app: test-cluster-cnpg
 spec:
   instances: 3
 
@@ -15,3 +17,25 @@ spec:
   # Require 1Gi of space
   storage:
     size: 10Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: test-cluster-cnpg-service
+spec:
+  type: LoadBalancer
+  ports:
+    - name: http
+      port: 80
+      targetPort: 80
+      protocol: TCP
+    - name: https
+      port: 443
+      targetPort: 443
+      protocol: TCP
+    - name: postgres
+      port: 5432
+      targetPort: 5432
+      protocol: TCP
+  selector:
+    app: test-cluster-cnpg
