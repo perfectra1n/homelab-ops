@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nfs-subdir-external-provisioner-app
+  namespace: nfs-subdir-external-provisioner
+spec:
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: nfs-subdir-external-provisioner
+  project: default
+  source:
+    path: kubernetes/system/nfs-subdir-external-provisioner
+    repoURL: https://gitea.perfectra1n.com/perf3ct/homelab-ops
+    targetRevision: HEAD
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+    automated:
+      prune: true
+      selfHeal: true 

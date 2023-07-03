@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nfs-subdir-external-provisioner
+  namespace: system
+spec:
+  project: default
+  source:
+    chart: nfs-subdir-external-provisioner
+    repoURL: https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner
+    targetRevision: 4.0.2
+    helm:
+      releaseName: nfs-subdir-external-provisioner-release
+      valueFiles:
+      - values.yaml
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: nfs-subdir-external-provisioner
