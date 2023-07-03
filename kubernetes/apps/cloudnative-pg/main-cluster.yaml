@@ -1,7 +1,7 @@
 apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
-  name: main-test-cluster
+  name: main-cluster
 spec:
   instances: 3
 
@@ -14,4 +14,4 @@ spec:
 
   # Require 1Gi of space
   storage:
-    size: 10Gi
+    size: 50Gi
