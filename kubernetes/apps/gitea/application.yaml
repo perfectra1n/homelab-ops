@@ -8,7 +8,6 @@ spec:
   source:
     chart: gitea
     repoURL: https://dl.gitea.io/charts/
-    targetRevision: e28c1520c0
     helm:
       releaseName: gitea-release
       values: |
