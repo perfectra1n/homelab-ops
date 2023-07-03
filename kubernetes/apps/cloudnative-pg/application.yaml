@@ -11,9 +11,6 @@ spec:
     targetRevision: '*'
     helm:
       releaseName: cnpg-release
-      values: |
-        service:
-          type: LoadBalancer
   destination:
     server: "https://kubernetes.default.svc"
     namespace: cloudnative-pg
