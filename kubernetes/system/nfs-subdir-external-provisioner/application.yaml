@@ -25,3 +25,9 @@ spec:
   destination:
     server: "https://kubernetes.default.svc"
     namespace: nfs-subdir-external-provisioner
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+    automated:
+      prune: true
+      selfHeal: true 
