@@ -13,6 +13,7 @@ spec:
   destination:
     server: "https://kubernetes.default.svc"
     namespace: metallb-system
+    targetRevision: v0.13.10
   syncPolicy:
     automated:
       prune: true
