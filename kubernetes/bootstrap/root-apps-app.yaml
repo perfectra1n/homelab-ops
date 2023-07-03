@@ -11,7 +11,7 @@ spec:
     namespace: apps
   project: default
   source:
-    path: kubernetes/app-manifests
+    path: kubernetes/manifests/apps
     repoURL: https://gitea.perfectra1n.com/perf3ct/homelab-ops
     targetRevision: HEAD
   syncPolicy:
