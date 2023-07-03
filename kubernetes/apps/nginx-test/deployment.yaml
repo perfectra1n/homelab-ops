@@ -32,3 +32,5 @@ spec:
     port: 80
     targetPort: http-web-svc
   type: LoadBalancer
+  selector:
+    app: nginx
