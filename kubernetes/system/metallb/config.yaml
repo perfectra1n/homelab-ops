@@ -5,7 +5,7 @@ metadata:
   namespace: metallb-system
 spec:
   addresses:
-  - 10.11.0.3-10.11.0.250    
+  - 10.11.0.0/24
   avoidBuggyIPs: true
 ---
 apiVersion: metallb.io/v1beta2
