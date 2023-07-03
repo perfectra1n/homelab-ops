@@ -6,7 +6,7 @@ metadata:
 spec:
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: argocd
+    namespace: nfs-subdir-external-provisioner
   project: default
   source:
     path: kubernetes/system/nfs-subdir-external-provisioner
