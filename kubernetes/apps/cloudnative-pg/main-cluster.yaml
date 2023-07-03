@@ -17,14 +17,6 @@ spec:
   # Require 1Gi of space
   storage:
     size: 50Gi
----
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: tcp-services
-  namespace: ingress-nginx
-data:
-  5432: default/main-cluster-rw:5432
 
 ---
 apiVersion: v1
