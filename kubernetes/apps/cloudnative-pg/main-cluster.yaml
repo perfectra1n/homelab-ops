@@ -2,7 +2,7 @@ apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
   name: main-cluster
-  lables:
+  labels:
     app: main-cluster-cnpg
 spec:
   instances: 3
