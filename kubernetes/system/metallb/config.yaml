@@ -3,6 +3,8 @@ kind: IPAddressPool
 metadata:
   name: first-pool
   namespace: metallb-system
+  annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 spec:
   addresses:
   - 10.11.0.0/24
@@ -13,6 +15,8 @@ kind: BGPPeer
 metadata:
   name: main-bgppeer
   namespace: metallb-system
+  annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 spec:
   myASN: 64500
   peerASN: 64502
@@ -23,3 +27,5 @@ kind: BGPAdvertisement
 metadata:
   name: main-advertisement
   namespace: metallb-system
+  annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
