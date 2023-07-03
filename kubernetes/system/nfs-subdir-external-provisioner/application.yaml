@@ -11,8 +11,17 @@ spec:
     targetRevision: 4.0.2
     helm:
       releaseName: nfs-subdir-external-provisioner-release
-      valueFiles:
-      - values.yaml
+      values: |
+        nfs:
+          server: "192.168.2.155"
+          path: "/mnt/main_pool/kube_docker_volumes"
+        storageClass:
+          name: "main-nfs-sc"
+          provisionerName: "k8s-sigs.io/main-nfs-subdir-external-provisioner"
+          defaultClass: true
+          accessModes: 
+          - "ReadWriteOnce"
+          - "ReadWriteMany"
   destination:
     server: "https://kubernetes.default.svc"
     namespace: nfs-subdir-external-provisioner
