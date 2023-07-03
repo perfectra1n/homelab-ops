@@ -38,4 +38,4 @@ spec:
       targetPort: 5432
       protocol: TCP
   selector:
-    app: test-cluster-cnpg
+    cnpg.io/cluster: test-cluster
