@@ -29,7 +29,6 @@ spec:
         podSecurityContext:
           fsGroup: 65534
         dbType: "postgres"
-        useInPodPostgres: true
   destination:
     server: "https://kubernetes.default.svc"
     namespace: gitea
