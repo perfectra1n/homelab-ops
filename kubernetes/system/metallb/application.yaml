@@ -1,17 +1,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: root-apps-app
+  name: root-systems-app
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: apps
+    namespace: system
   project: default
   source:
-    path: kubernetes/app-manifests
+    path: kubernetes/system
     repoURL: https://gitea.perfectra1n.com/perf3ct/homelab-ops
     targetRevision: HEAD
   syncPolicy:

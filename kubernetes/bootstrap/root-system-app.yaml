@@ -11,7 +11,7 @@ spec:
     namespace: system
   project: default
   source:
-    path: kubernetes/system
+    path: kubernetes/system-manifests
     repoURL: https://gitea.perfectra1n.com/perf3ct/homelab-ops
     targetRevision: HEAD
   syncPolicy:
