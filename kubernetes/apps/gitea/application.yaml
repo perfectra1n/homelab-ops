@@ -1,0 +1,41 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: gitea
+  namespace: argocd
+spec:
+  project: default
+  source:
+    chart: gitea
+    repoURL: https://dl.gitea.io/charts/
+    targetRevision: 8.3.0
+    helm:
+      releaseName: gitea-release
+      values: |
+        image:
+          # I needed the rootless so that it wouldn't keep trying to chown the freaking /data dir with 1000:1000 for the NFS subdir provisioner
+          rootless: true
+        persistence:
+          storageClass: "main-nfs-sc"
+          existingClaim: "gitea-main-pvc"
+          enabled: true
+          size: 1Mi
+        gitea:
+          service:
+            http:
+              type: LoadBalancer
+        statefulSet:
+          replicaCount: 3 
+        podSecurityContext:
+          fsGroup: 65534
+        dbType: "postgres"
+        useInPodPostgres: true
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: gitea
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+    automated:
+      prune: true
+      selfHeal: true 
