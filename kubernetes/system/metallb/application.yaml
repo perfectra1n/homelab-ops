@@ -6,17 +6,18 @@ metadata:
 spec:
   project: default
   source:
-    chart: metallb/metallb
+    chart: metallb
     repoURL: https://metallb.github.io/metallb
     helm:
       releaseName: metallb-release
   destination:
     server: "https://kubernetes.default.svc"
     namespace: metallb-system
-    targetRevision: v0.13.10
+    targetRevision: "0.13.10"
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
+      allowEmpty: true
     syncOptions:
       - CreateNamespace=true
