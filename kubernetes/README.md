@@ -10,3 +10,5 @@
 2. I then wanted to use Kustomized Helm so I ran the file [here](kubernetes/bootstrap/config/argocm.yaml).
 3. Set up repos and their credentials (file [here](https://nas.jonathonfuller.com/f/3979539))
 4. Created the root app file (and deployed it) so that it would deploy all the other apps ("app in apps" architecture).
+5. Deploy the "root-apps", in [root-apps-app.yaml](kubernetes/bootstrap/root-apps-app.yaml) and [root-system-app.yaml](kubernetes/bootstrap/root-system-app.yaml)
+6. Needed to run `sudo apt install nfs-common` on the nodes, for `nfs-subdir-external-provisioner`
