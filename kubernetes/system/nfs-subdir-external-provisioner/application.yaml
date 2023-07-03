@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: nfs-subdir-external-provisioner
-  namespace: system
+  namespace: nfs-subdir-external-provisioner
 spec:
   project: default
   source:
