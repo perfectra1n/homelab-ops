@@ -1,3 +1,4 @@
 *.retry
 roles/galaxy
 ansible/roles/galaxy
+.hypothesis/unicode_data/13.0.0/charmap.json.gz
