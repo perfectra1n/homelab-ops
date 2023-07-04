@@ -23,6 +23,7 @@ kind: Service
 metadata:
   name: test-cluster-cnpg-service
 spec:
+  externalTrafficPolicy: Cluster
   type: LoadBalancer
   ports:
     - name: postgres
