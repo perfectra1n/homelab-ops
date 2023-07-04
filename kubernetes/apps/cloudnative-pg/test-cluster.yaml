@@ -1,9 +1,7 @@
 apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
-namespace: cnpg
 metadata:
   name: test-cluster
-  app: test-cluster-cnpg
   labels:
     name: test-cluster
     usecase: database
@@ -23,7 +21,6 @@ spec:
 ---
 apiVersion: v1
 kind: Service
-namespace: cnpg
 metadata:
   name: test-cluster-cnpg-service
 spec:
