@@ -35,3 +35,4 @@ spec:
       protocol: TCP
   selector:
     name: main-cluster
+    usecase: database
