@@ -17,7 +17,6 @@ spec:
   # Require 1Gi of space
   storage:
     size: 50Gi
-
 ---
 apiVersion: v1
 kind: Service
@@ -26,14 +25,6 @@ metadata:
 spec:
   type: LoadBalancer
   ports:
-    - name: http
-      port: 80
-      targetPort: 80
-      protocol: TCP
-    - name: https
-      port: 443
-      targetPort: 443
-      protocol: TCP
     - name: postgres
       port: 5432
       targetPort: 5432
