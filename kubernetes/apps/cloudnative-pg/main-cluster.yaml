@@ -3,6 +3,10 @@ kind: Cluster
 metadata:
   name: main-cluster
   app: main-cluster-cnpg
+  labels:
+    name: main-cluster
+    usecase: database
+
 spec:
   instances: 3
 

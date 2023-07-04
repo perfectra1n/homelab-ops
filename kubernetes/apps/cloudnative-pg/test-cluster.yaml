@@ -3,6 +3,9 @@ kind: Cluster
 metadata:
   name: test-cluster
   app: test-cluster-cnpg
+  labels:
+    name: test-cluster
+    usecase: database
 spec:
   instances: 3
 
