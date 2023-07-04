@@ -10,7 +10,7 @@ spec:
     repoURL: https://kubernetes-sigs.github.io/metrics-server
     targetRevision: '*'
     helm:
-      releaseName: cnpg-release
+      releaseName: metrics-server
   destination:
     server: "https://kubernetes.default.svc"
     namespace: metrics-server
