@@ -2,8 +2,7 @@ apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
   name: test-cluster
-  labels:
-    app: test-cluster-cnpg
+  app: test-cluster-cnpg
 spec:
   instances: 3
 
@@ -31,4 +30,4 @@ spec:
       targetPort: 5432
       protocol: TCP
   selector:
-    app: test-cluster-cnpg
+    name: test-cluster
