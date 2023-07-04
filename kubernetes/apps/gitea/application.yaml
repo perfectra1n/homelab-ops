@@ -31,7 +31,7 @@ spec:
         dbType: "postgres"
   destination:
     server: "https://kubernetes.default.svc"
-    namespace: gitea
+    namespace: gitea-ns
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
