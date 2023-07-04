@@ -1,6 +1,7 @@
 # homelab-ops
 
-Here's where I'm going to slap everything for my Homelab Ops stuff lol
+![homelab.png](./docs/images/homelab.png)
+
 
 So I've got this broken down into several parts.
 1. [Ansible](./ansible/)
