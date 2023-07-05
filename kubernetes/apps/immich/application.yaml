@@ -11,9 +11,13 @@ spec:
     targetRevision: '*'
     helm:
       releaseName: immich-release
+      values: |
+        service:
+          main:
+            type: LoadBalancer
   destination:
     server: "https://kubernetes.default.svc"
-    namespace: immich-ns
+    namespace: immich
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
