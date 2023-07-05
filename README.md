@@ -1,4 +1,4 @@
-# homelab-ops
+# Homelab Ops
 
 ![homelab.png](./docs/images/homelab.png)
 
