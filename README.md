@@ -1,6 +1,6 @@
 # Homelab Ops
 
-![homelab.png](./docs/images/homelab.png =250x)
+![homelab.png](./docs/images/homelab.png)
 
 
 So I've got this broken down into several parts.
