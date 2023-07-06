@@ -10,7 +10,7 @@ spec:
     repoURL: https://victoriametrics.github.io/helm-charts
     targetRevision: '*'
     helm:
-      releaseName: vm-cluster-release
+      releaseName: vm-cluster
       values: |
         persistentVolume:
           enabled: true
