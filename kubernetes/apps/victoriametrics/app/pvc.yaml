@@ -1,0 +1,31 @@
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: vmstorage-main-pvc
+  namespace: victoriametrics
+spec:
+  storageClassName: "main-nfs-sc"
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      # NFS Subdir Provisioner doesn't care at all abou this
+      storage: 100M
+  selector:
+    matchLabels:
+      app: vmstorage
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: vmselect-main-pvc
+  namespace: victoriametrics
+spec:
+  storageClassName: "main-nfs-sc"
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      # NFS Subdir Provisioner doesn't care at all abou this
+      storage: 100M

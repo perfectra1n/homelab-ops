@@ -1,20 +1,27 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: vm-cluster
+  name: vm-stack
   namespace: argocd
 spec:
   project: default
   source:
-    chart: victoria-metrics-cluster
+    chart: victoria-metrics-k8s-stack
     repoURL: https://victoriametrics.github.io/helm-charts
     targetRevision: '*'
     helm:
-      releaseName: vm-cluster
+      releaseName: vm-stack
       valuesObject:
-        persistentVolume:
+        grafana:
           enabled: true
-          existingClaim: vm-cluster-main-pvc
+        vmstorage:
+          persistentVolume:
+            enabled: true
+            existingClaim: vmstorage-main-pvc
+        vmselect:
+          persistentVolume:
+            enabled: true
+            existingClaim: vmselect-main-pvc
         service:
           type: LoadBalancer
   destination:
