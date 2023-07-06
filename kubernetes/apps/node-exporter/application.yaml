@@ -10,7 +10,12 @@ spec:
     repoURL: https://prometheus-community.github.io/helm-charts
     targetRevision: '*'
     helm:
-      releaseName: node-exporter-release            
+      releaseName: node-exporter-release
+      values: |
+        service:
+          type: LoadBalancer
+          annotations:
+            metallb.universe.tf/loadBalancerIPs: 10.11.0.15      
   destination:
     server: "https://kubernetes.default.svc"
     namespace: node-exporter
