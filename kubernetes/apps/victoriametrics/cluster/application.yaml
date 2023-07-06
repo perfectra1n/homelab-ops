@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: vm-cluster
+  namespace: argocd
+spec:
+  project: default
+  source:
+    chart: victoria-metrics-cluster
+    repoURL: https://victoriametrics.github.io/helm-charts
+    targetRevision: '*'
+    helm:
+      releaseName: vm-cluster-release
+      values: |
+        persistenceVolume:
+          enabled: true
+          existingClaim: vm-cluster-main-pvc
+        service:
+          main:
+            type: LoadBalancer
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: victoriametrics
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+    automated:
+      prune: true
+      selfHeal: true 
