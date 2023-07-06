@@ -11,7 +11,7 @@ spec:
     targetRevision: '*'
     helm:
       releaseName: vm-cluster
-      values: |
+      valuesObject:
         persistentVolume:
           enabled: true
           existingClaim: vm-cluster-main-pvc
