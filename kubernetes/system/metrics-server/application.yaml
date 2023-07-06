@@ -14,6 +14,7 @@ spec:
       values: |
         args:
           - --kubelet-preferred-address-types=InternalIP,ExternalIP,Hostname
+          - --kubelet-insecure-tls
   destination:
     server: "https://kubernetes.default.svc"
     namespace: metrics
