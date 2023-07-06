@@ -16,7 +16,7 @@ spec:
           type: LoadBalancer
   destination:
     server: "https://kubernetes.default.svc"
-    namespace: metrics-server
+    namespace: metrics
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
