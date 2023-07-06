@@ -2,7 +2,21 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: vm-cluster-main-pvc
+  name: vminsert-main-pvc
+  namespace: victoriametrics
+spec:
+  storageClassName: "main-nfs-sc"
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      # NFS Subdir Provisioner doesn't care at all abou this
+      storage: 100M
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: vmstorage-main-pvc
   namespace: victoriametrics
 spec:
   storageClassName: "main-nfs-sc"

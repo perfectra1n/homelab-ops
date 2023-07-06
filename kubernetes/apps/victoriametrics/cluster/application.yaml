@@ -11,12 +11,19 @@ spec:
     targetRevision: '*'
     helm:
       releaseName: vm-cluster
-      valuesObject:
-        persistentVolume:
-          enabled: true
-          existingClaim: vm-cluster-main-pvc
-        service:
-          type: LoadBalancer
+      values: |
+        vminsert:
+          persistentVolume:
+            enabled: true
+            existingClaim: vminsert-main-pvc
+          service:
+            type: LoadBalancer
+        vmstorage:
+          persistentVolume:
+            enabled: true
+            existingClaim: vmstorage-main-pvc
+          service:
+            type: LoadBalancer
   destination:
     server: "https://kubernetes.default.svc"
     namespace: victoriametrics
