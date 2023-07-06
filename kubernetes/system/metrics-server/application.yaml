@@ -12,8 +12,6 @@ spec:
     helm:
       releaseName: metrics-server-release
       values: |
-        service:
-          type: LoadBalancer
         args:
           - --kubelet-preferred-address-types=InternalIP,ExternalIP,Hostname
         replicas: 0
