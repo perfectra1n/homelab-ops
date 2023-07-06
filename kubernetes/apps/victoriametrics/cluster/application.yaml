@@ -16,8 +16,7 @@ spec:
           enabled: true
           existingClaim: vm-cluster-main-pvc
         service:
-          main:
-            type: LoadBalancer
+          type: LoadBalancer
   destination:
     server: "https://kubernetes.default.svc"
     namespace: victoriametrics

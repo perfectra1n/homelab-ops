@@ -13,8 +13,7 @@ spec:
       releaseName: vm-agent-release
       values: |
         service:
-          main:
-            type: LoadBalancer
+          type: LoadBalancer
         config:
           global:
             scrape_timeout: 30m
