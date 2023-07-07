@@ -4,4 +4,3 @@ kind: Kustomization
 resources:
   - ./app/application.yaml
   - ./clusters/main-cluster.yaml
-  - ./clusters/test-cluster.yaml

@@ -10,7 +10,8 @@ spec:
   primaryUpdateStrategy: unsupervised
 
   storage:
-    size: 50Gi
+    size: 30Gi
+    storageClassName: local-path
 ---
 apiVersion: v1
 kind: Service
