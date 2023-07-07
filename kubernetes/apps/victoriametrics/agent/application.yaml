@@ -12,8 +12,9 @@ spec:
     helm:
       releaseName: vm-agent-release
       values: |
-        service:
-          type: LoadBalancer
+        vmselect:
+          service:
+            type: LoadBalancer
         config:
           global:
             scrape_timeout: 30m
