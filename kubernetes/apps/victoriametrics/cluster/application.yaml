@@ -26,7 +26,7 @@ spec:
             existingClaim: vmstorage-pvc
           service:
             type: LoadBalancer
-          replicas: 1
+          replicaCount: 1
         vmselect:
           service:
             type: LoadBalancer
