@@ -11,7 +11,8 @@ spec:
     targetRevision: '*'
     helm:
       releaseName: vm-cluster
-      # For the securitycontext, make sure it matches the uid/gid of the NFS server
+      # "FATAL: cannot create lock file: cannot acquire lock on file \"/storage/flock.lock\": resource temporarily unavailable; make sure a single process has exclusive access to \"/storage\"
+      # Had to set the replicas of vmstorage to 1 because of this error
       values: |
         vminsert:
           persistentVolume:
@@ -25,9 +26,7 @@ spec:
             existingClaim: vmstorage-pvc
           service:
             type: LoadBalancer
-          securityContext:
-            runAsUser: 65534
-            runAsGroup: 65534
+          replicas: 1
         vmselect:
           service:
             type: LoadBalancer
