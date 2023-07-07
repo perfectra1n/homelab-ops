@@ -21,7 +21,7 @@ spec:
           - --kubelet-insecure-tls
   destination:
     server: "https://kubernetes.default.svc"
-    namespace: metrics
+    namespace: metrics-server
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
