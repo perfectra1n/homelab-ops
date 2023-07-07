@@ -15,13 +15,13 @@ spec:
         vminsert:
           persistentVolume:
             enabled: true
-            existingClaim: vminsert-main-pvc
+            existingClaim: vminsert-pvc
           service:
             type: LoadBalancer
         vmstorage:
           persistentVolume:
             enabled: true
-            existingClaim: vmstorage-main-pvc
+            existingClaim: vmstorage-pvc
           service:
             type: LoadBalancer
         vmselect:
