@@ -22,6 +22,7 @@ spec:
           accessModes: 
           - "ReadWriteOnce"
           - "ReadWriteMany"
+          onDelete: "Retain"
   destination:
     server: "https://kubernetes.default.svc"
     namespace: nfs-subdir-external-provisioner
