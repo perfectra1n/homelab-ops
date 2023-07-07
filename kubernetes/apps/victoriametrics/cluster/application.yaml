@@ -24,6 +24,9 @@ spec:
             existingClaim: vmstorage-main-pvc
           service:
             type: LoadBalancer
+        vmselect:
+          service:
+            type: LoadBalancer
   destination:
     server: "https://kubernetes.default.svc"
     namespace: victoriametrics
