@@ -11,7 +11,7 @@ spec:
     targetRevision: '*'
     helm:
       releaseName: gitea-release
-      valuesObject:
+      values: |
         image:
           # I needed the rootless so that it wouldn't keep trying to chown the freaking /data dir with 1000:1000 for the NFS subdir provisioner
           rootless: true

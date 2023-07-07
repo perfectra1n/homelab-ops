@@ -11,10 +11,10 @@ spec:
     targetRevision: 3.10.0
     helm:
       releaseName: metrics-server-release
-      valuesObject:
+      values: |
         args:
-          - --kubelet-preferred-address-types=InternalIP,ExternalIP,Hostname
           - --kubelet-insecure-tls
+          - --kubelet-preferred-address-types=InternalIP,ExternalIP,Hostname
         replicas: 0
   destination:
     server: "https://kubernetes.default.svc"

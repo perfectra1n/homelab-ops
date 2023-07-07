@@ -11,7 +11,7 @@ spec:
     targetRevision: '*'
     helm:
       releaseName: vm-agent-release
-      valuesObject:
+      values: |
         service:
           type: LoadBalancer
         config:
