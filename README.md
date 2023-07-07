@@ -1,7 +1,8 @@
 # Homelab Ops
 
-![homelab.png](./docs/images/homelab.png)
-
+<p align="center" width="100%">
+    <img src="./docs/images/homelab.png"> 
+</p>
 
 So I've got this broken down into several parts.
 1. [Ansible](./ansible/)
