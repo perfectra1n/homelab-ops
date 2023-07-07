@@ -11,6 +11,7 @@ spec:
     targetRevision: '*'
     helm:
       releaseName: vm-cluster
+      # For the securitycontext, make sure it matches the uid/gid of the NFS server
       values: |
         vminsert:
           persistentVolume:
@@ -24,6 +25,9 @@ spec:
             existingClaim: vmstorage-pvc
           service:
             type: LoadBalancer
+          securityContext:
+            runAsUser: 65534
+            runAsGroup: 65534
         vmselect:
           service:
             type: LoadBalancer
