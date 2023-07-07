@@ -20,6 +20,7 @@ spec:
             existingClaim: vminsert-pvc
           service:
             type: LoadBalancer
+          replicaCount: 1
         vmstorage:
           persistentVolume:
             enabled: true
@@ -30,6 +31,7 @@ spec:
         vmselect:
           service:
             type: LoadBalancer
+          replicaCount: 1
   destination:
     server: "https://kubernetes.default.svc"
     namespace: victoriametrics
