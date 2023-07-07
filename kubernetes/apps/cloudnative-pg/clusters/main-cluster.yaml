@@ -11,7 +11,7 @@ spec:
 
   storage:
     size: 30Gi
-    storageClassName: local-path
+    storageClass: local-path
 ---
 apiVersion: v1
 kind: Service
