@@ -10,7 +10,11 @@ spec:
     - ReadWriteMany
     - ReadWriteOnce
   storageClassName: vmstorage-nfs
+  # https://stackoverflow.com/questions/34282704/can-a-pvc-be-bound-to-a-specific-pv
   persistentVolumeReclaimPolicy: Retain
+  claimRef:
+    namespace: victoriametrics
+    name: vmstorage-pvc
   nfs:
     server: "192.168.2.155"
     path: "/mnt/main_pool/kube_docker_volumes/victoriametrics/vmstorage"
@@ -25,7 +29,6 @@ metadata:
   name: vmstorage-pvc
   namespace: victoriametrics
 spec:
-  storageClassName: "vmstorage-nfs"
   accessModes:
     - ReadWriteOnce
   resources:
