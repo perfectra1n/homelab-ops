@@ -10,10 +10,10 @@ spec:
     repoURL: https://cloudnative-pg.github.io/charts
     targetRevision: '*'
     helm:
-      releaseName: cnpg-release
+      releaseName: cnpg-database-release
   destination:
     server: "https://kubernetes.default.svc"
-    namespace: cloudnative-pg
+    namespace: databases
   syncPolicy:
     syncOptions:
     - CreateNamespace=true

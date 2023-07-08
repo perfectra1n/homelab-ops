@@ -6,7 +6,7 @@ metadata:
 spec:
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: cloudnative-pg
+    namespace: databases
   project: default
   source:
     path: kubernetes/apps/cloudnative-pg
