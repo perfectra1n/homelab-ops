@@ -19,7 +19,7 @@ spec:
         - containerPort: 8080
         volumeMounts:
         - name: trilium-rain-pvc
-          mountPath: /home/node/trilium-data
+          mountPath: /home/node
       volumes:
       - name: trilium-rain-pvc
         persistentVolumeClaim:
