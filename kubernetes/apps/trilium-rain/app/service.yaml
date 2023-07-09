@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: trilium-rain-lb
+spec:
+  type: LoadBalancer
+  selector:
+    app: trilium-rain
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 8080
+  

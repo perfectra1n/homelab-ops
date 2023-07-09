@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: trilium-rain
+spec:
+  selector:
+    matchLabels:
+      app: trilium-rain
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: trilium-rain
+    spec:
+      containers:
+      - name: trilium-rain
+        image: zadam/trilium:0.60.4
+        ports:
+        - containerPort: 8080
+        volumeMounts:
+        - name: trilium-rain-pvc
+          mountPath: /home/node/trilium-data
