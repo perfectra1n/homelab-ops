@@ -12,3 +12,39 @@
 4. Created the root app file (and deployed it) so that it would deploy all the other apps ("app in apps" architecture).
 5. Deploy the "root-apps", in [root-apps-app.yaml](kubernetes/bootstrap/root-apps-app.yaml) and [root-system-app.yaml](kubernetes/bootstrap/root-system-app.yaml)
 6. Needed to run `sudo apt install nfs-common` on the nodes, for `nfs-subdir-external-provisioner`
+
+
+## Examples
+
+### Create PV and PVC
+```yaml
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: nfs-pv
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteMany
+  nfs:
+    server: 192.168.2.155
+    path: /mnt/data/example1
+
+---
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: nfs-pvc
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Gi
+  selector:
+    matchLabels:
+      type: nfs-pv
+
+```
