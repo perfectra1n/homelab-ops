@@ -12,6 +12,11 @@ spec:
       labels:
         app: trilium-rain
     spec:
+      securityContext:
+        runAsNonRoot: false
+        runAsUser: 0
+        runAsGroup: 0
+        fsGroup: 1000
       containers:
       - name: trilium-rain
         image: zadam/trilium:0.60.4
