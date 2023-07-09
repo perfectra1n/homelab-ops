@@ -3,7 +3,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: trilium-rain-pvc
 spec:
-  storageClassName: manual
+  storageClassName: main-nfs-sc
   accessModes:
     - ReadWriteOnce
   resources:
