@@ -4,6 +4,8 @@ metadata:
   name: trilium-rain-lb
 spec:
   type: LoadBalancer
+  annotations:
+    metallb.universe.tf/loadBalancerIPs: 10.11.0.6
   selector:
     app: trilium-rain
   ports:

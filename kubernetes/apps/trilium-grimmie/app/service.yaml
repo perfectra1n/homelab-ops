@@ -4,6 +4,8 @@ metadata:
   name: trilium-grimmie-lb
 spec:
   type: LoadBalancer
+  annotations:
+    metallb.universe.tf/loadBalancerIPs: 10.11.0.13
   selector:
     app: trilium-grimmie
   ports:
