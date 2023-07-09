@@ -1,26 +1,26 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: trilium-rain
+  name: trilium-grimmie
 spec:
   selector:
     matchLabels:
-      app: trilium-rain
+      app: trilium-grimmie
   replicas: 1
   template:
     metadata:
       labels:
-        app: trilium-rain
+        app: trilium-grimmie
     spec:
       containers:
-      - name: trilium-rain
+      - name: trilium-grimmie
         image: zadam/trilium:0.60.4
         ports:
         - containerPort: 8080
         volumeMounts:
-        - name: trilium-rain-pvc
+        - name: trilium-grimmie-pvc
           mountPath: /home/node
       volumes:
-      - name: trilium-rain-pvc
+      - name: trilium-grimmie-pvc
         persistentVolumeClaim:
-          claimName: trilium-rain-pvc
+          claimName: trilium-grimmie-pvc

@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: trilium-grimmie-lb
+spec:
+  type: LoadBalancer
+  selector:
+    app: trilium-grimmie
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 8080
+  
