@@ -20,6 +20,18 @@ spec:
         volumeMounts:
         - name: trilium-rain-pvc
           mountPath: /home/node
+        resources:
+          limits:
+            cpu: "4"
+            memory: "2048Mi"
+          requests:
+            cpu: "1"
+            memory: "1024Mi"
+        securityContext:
+          runAsNonRoot: false
+          runAsUser: 1000
+          runAsGroup: 1000
+          fsGroup: 1000
       volumes:
       - name: trilium-rain-pvc
         persistentVolumeClaim:
