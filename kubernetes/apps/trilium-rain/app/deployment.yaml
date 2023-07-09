@@ -20,3 +20,7 @@ spec:
         volumeMounts:
         - name: trilium-rain-pvc
           mountPath: /home/node/trilium-data
+      volumes:
+      - name: trilium-rain-pvc
+        persistentVolumeClaim:
+          claimName: trilium-rain-pvc
