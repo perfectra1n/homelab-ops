@@ -23,7 +23,6 @@ metadata:
   annotations:
     metallb.universe.tf/loadBalancerIPs: 10.11.0.5
 spec:
-  externalTrafficPolicy: Local
   type: LoadBalancer
   ports:
     - name: postgres
